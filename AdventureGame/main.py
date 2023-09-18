@@ -1,51 +1,19 @@
-description = ("You find yourself in a big room with a chandeler hanging from the roof."
-               "There are paintings hanging on the walls.")
-doors = ["north", "south", "east", "west"]
-
-
-# Welcome screen
-def welcome():
-    directions = ""
-
-    print("Hi and welcome to this adventure game")
-    print("-------------------------------------")
-    print()
-    print(description)
-    print(f"When you look around you see doors to your:")
-    for direction in doors:
-        directions = directions + direction + ", "
-    print(directions)
-    print()
-
-
-# Menu
-def menu():
-    print("What do you want to do?")
-    print("1. Go north")
-    print("2. Go south")
-    print("3. Go east")
-    print("4. Go west")
-    print("5. Look")
-    print("6. Quit game")
-    print()
+from Classes.GameState import GameState
 
 
 # Main loop
 def main():
-    welcome()
+    # TODO Create player object
+    # TODO Let user choose player name
+    game_state = GameState()
+    print(game_state)
 
-    run = True
-    while run:
-        menu()
-        choice = input("Enter your choice: ")
+    while game_state.current_state != game_state.GAME_OVER:
+        if game_state.current_state == game_state.MAIN_MENU:
+            game_state.handle_main_menu()
 
-        if not choice.isnumeric():
-            print("Wrong input. Please enter a number (1-6)")
-            continue
-
-        choice = int(choice)
-        if choice == 6:
-            run = False
+        elif game_state.current_state == game_state.EXPLORATION:
+            game_state.handle_exploration()
 
 
 # Initialize
