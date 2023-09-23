@@ -3,8 +3,8 @@
 
 This is a text based adventure game in development.
 
-You will face a series of random events, from riddles if completed boosts your stats <br />
-to battle against skeletons, trolls and whatever else lies waiting in the darkness of the murkwood.
+You will face a series of random events, complete riddles that boosts your stats <br />
+or battle against skeletons, trolls and whatever else lies waiting in the darkness of the murkwood.
 
 
 ## Working right now:
