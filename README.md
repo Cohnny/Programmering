@@ -10,7 +10,7 @@ or battle against skeletons, trolls and whatever else lies waiting in the darkne
 ## Working right now:
 Main game loop reacting to gamestates. <br />
 Reads gamedata from JSON. <br />
-Some player choices implemented <br />
+Some player choices implemented. <br />
 Creates player object. <br />
 Creates random enemy object. <br />
 Prints description of the enemy object. <br />
