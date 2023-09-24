@@ -1,0 +1,30 @@
+
+{
+	"Troll": {
+		"description": {
+			"1":  "As you venture deeper into the forest, a menacing presence looms before you.\nA massive, moss-covered troll steps out from behind a towering oak tree.\nIts yellow eyes fixate on you with a hungry gleam,\nand its hulking form casts a long shadow across your path.\nBeads of saliva glisten on its jagged, yellow teeth as it lets out a bone-chilling growl.\nBrace yourself for a battle, for you've crossed paths with a formidable forest troll!",
+			"2":  "As you trudge through the murky swamp, the ground trembles beneath your feet.\nA monstrous figure emerges from the mists, towering over the twisted trees.\nIt's a troll, its warty, green flesh dripping with slimy swamp water.\nIts bulbous eyes, glowing with malevolence, lock onto you.\nThe stench of decay and algae fills the air as it raises a colossal,\nclub-like arm, ready to strike. You've stumbled upon a fearsome swamp troll,\nand a perilous battle awaits",
+			"3":  "As you navigate the dense, shadowy depths of the primeval forest, an ominous rustling of leaves and snapping of branches fills the air.\nSuddenly, a monstrous figure steps into your path, blocking out the dappled sunlight.\nIt's a troll, its gnarled, mossy skin blending seamlessly with the surrounding foliage.\nIts eyes, gleaming with cunning, lock onto you with a predatory focus.\nThe eerie hush of the forest is shattered by the troll's guttural growl\nas it brandishes a wickedly barbed club, entangled with thorny vines.\nYou've stumbled upon a formidable forest troll, a guardian of these dark woods,\nand a battle in this untamed realm is inevitable."
+		},
+		"hp": 50,
+		"damage": 5
+	},
+	"Goblin": {
+		"description": {
+			"1": "It's green!",
+			"2": "It's green and dangerous",
+			"3": "It's cute!"
+		},
+		"hp": 25,
+		"damage": 3
+	},
+	"Skeleton": {
+		"description": {
+			"1": "A skeletal warrior emerges from the darkness, clad in rusty armor and wielding a tattered sword.\nIts hollow eye sockets glow with an eerie, greenish light, and its bony fingers twitch with anticipation.",
+			"2": "A skeletal sentinel materializes before you, its bones bleached white from years of exposure.\nIt wears a tattered, hooded cloak, and its skeletal fingers clutch a glowing, spectral shield that seems to defy the laws of nature.",
+			"3": "A skeletal rogue slinks into view, its bones agile and nimble.\nDressed in tattered, black leather armor, it wields a pair of wicked-looking bone daggers.\nIts eye sockets gleam with malevolent cunning as it sizes you up for a deadly confrontation."
+		},
+		"hp": 10,
+		"damage": 1
+	}
+}

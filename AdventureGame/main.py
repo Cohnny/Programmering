@@ -3,17 +3,14 @@ from Classes.GameState import GameState
 
 # Main loop
 def main():
-    # TODO Create player object
-    # TODO Let user choose player name
-    game_state = GameState()
-    print(game_state)
+    current_state = GameState()
 
-    while game_state.current_state != game_state.GAME_OVER:
-        if game_state.current_state == game_state.MAIN_MENU:
-            game_state.handle_main_menu()
+    while current_state.state != current_state.GAME_OVER:
+        if current_state.state == current_state.MAIN_MENU:
+            current_state.handle_main_menu()
 
-        elif game_state.current_state == game_state.EXPLORATION:
-            game_state.handle_exploration()
+        elif current_state.state == current_state.EXPLORATION:
+            current_state.handle_exploration()
 
 
 # Initialize

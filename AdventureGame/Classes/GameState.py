@@ -1,83 +1,84 @@
+import random
+
+from DataManager import load_data
+from .Player import Player
+from .Enemy import Enemy
+
+
 class GameState:
     # Different game states
     MAIN_MENU = "Main Menu"
     EXPLORATION = "Exploration"
+    COMBAT = "Combat"
     CHALLENGE = "Challenge"
     GAME_OVER = "Game Over"
 
-    # TODO Create a challenge class which holds all the information
-    challenges = {
-        "Troll": {
-            "Description": {
-                "1": ("As you venture deeper into the forest, a menacing presence looms before you."
-                      "A massive, moss-covered troll steps out from behind a towering oak tree. "
-                      "Its yellow eyes fixate on you with a hungry gleam, and its hulking form casts"
-                      "a long shadow across your path. Beads of saliva glisten on its jagged,"
-                      "yellow teeth as it lets out a bone-chilling growl. Brace yourself for a battle,"
-                      "for you've crossed paths with a formidable forest troll!"),
-                "2": ("As you trudge through the murky swamp, the ground trembles beneath your feet."
-                      "A monstrous figure emerges from the mists, towering over the twisted trees."
-                      "It's a troll, its warty, green flesh dripping with slimy swamp water."
-                      "Its bulbous eyes, glowing with malevolence, lock onto you."
-                      "The stench of decay and algae fills the air as it raises a colossal,"
-                      "club-like arm, ready to strike. You've stumbled upon a fearsome swamp troll,"
-                      "and a perilous battle awaits."),
-                "3": ("As you navigate the dense, shadowy depths of the primeval forest,"
-                      "an ominous rustling of leaves and snapping of branches fills the air."
-                      "Suddenly, a monstrous figure steps into your path, blocking out the dappled sunlight."
-                      "It's a troll, its gnarled, mossy skin blending seamlessly with the surrounding foliage."
-                      "Its eyes, gleaming with cunning, lock onto you with a predatory focus."
-                      "The eerie hush of the forest is shattered by the troll's guttural growl"
-                      "as it brandishes a wickedly barbed club, entangled with thorny vines."
-                      "You've stumbled upon a formidable forest troll, a guardian of these dark woods,"
-                      "and a battle in this untamed realm is inevitable.")
-            }
-        }
-    }
-
-    # Constructor
+    # Constructor. Sets state, creates player object, loads JSON data.
     def __init__(self):
-        self.current_state = self.MAIN_MENU
+        self.state = self.MAIN_MENU
+        self.player = Player("", 100, 10)
+        self.data = load_data("Data/Events.json")
 
     # Handles main menu state
     def handle_main_menu(self):
-        print("Welcome to the Text Adventure Game!")
+        name = input("Hello adventurer what's your name?: ")
+        self.player.set_player_name(name)
+        print()
+        print(f"Welcome to Gloomhaven, {self.player.name}. The air is thick with mystery and danger in these shadowed\n"
+              f"streets. Prepare yourself, for the path ahead is treacherous, and the denizens of Murkwood are not to\n"
+              f"be trifled with. Your fate awaits, brave traveler.")
+        print()
+        print("Begin your journey or take farewell: ")
         print("1. Start Game")
         print("2. Quit")
 
         choice = input("Enter your choice: ")
+        print()
 
         if choice == "1":
-            print("You start the game.")
-            self.current_state = self.EXPLORATION
+            self.state = self.EXPLORATION
         elif choice == "2":
-            print("Goodbye!")
-            self.current_state = self.GAME_OVER
+            print("Farewell!")
+            self.state = self.GAME_OVER
         else:
             print("Invalid choice. Please try again.")
 
-    # Handles the exploration state
+    # Handles the exploration state.
     def handle_exploration(self):
-        print("SOME KIND OF WELCOME MESSAGE")  # TODO Implement welcome message (with greetings to the player name)
-        print("MORE WELCOME MESSAGE IF NEEDED")
-        print("1. FIRST CHOICE")  # TODO Think of implementing some randomness into the exploration
-        print("2. SECOND CHOICE")
+        print("As you step forward into the unknown, you bid farewell to the gloomy streets of Gloomhaven and step\n"
+              "deeper into the heart of Murkwood. Here, the air is heavy with an eerie mist, and the ancient trees\n"
+              "stretch their gnarled branches towards the sky, casting long, ominous shadows. Mysterious noises drift\n"
+              "through the dense forest, hinting at the challenges awaiting you in this enigmatic realm. Murkwood is\n"
+              "a place where your bravery and cunning will be put to the test, as you seek to unveil the hidden\n"
+              "mysteries that lie within. Your adventure begins now.")
+        print("1. Go left")
+        print("2. Go right")
         choice = input("Enter your choice: ")
+        print()
 
-        if choice == "1":  # TODO Placeholder just for checking functions/choices
-            self.current_state = self.CHALLENGE
-            self.handle_challenge("max_hp")
-        elif choice == "2":  # TODO Placeholder just for checking functions/choices
-            self.current_state = self.CHALLENGE
-            self.handle_challenge("damage")
+        # Gets a random enemy from dictionary. Creates an enemy object and sets its name, damage and hp.
+        # Calls and print the enemy to_string to show enemy info
+        if choice == "1":
+            random_enemy = random.choice(list(self.data.keys()))
+            random_description = random.choice(list(self.data[random_enemy]["description"].values()))
+            print(random_description)
+            enemy = Enemy(random_enemy, self.data[random_enemy]["damage"], self.data[random_enemy]["hp"])
+            enemy.to_string()
+            print()
+            self.handle_combat()
+        # Just a placeholder. Does the same as choice 1.
+        elif choice == "2":
+            random_enemy = random.choice(list(self.data.keys()))
+            print(type(random_enemy))
+            enemy = Enemy(random_enemy, self.data[random_enemy]["damage"], self.data[random_enemy]["hp"])
+            enemy.to_string()
+            print()
+            print()
+            self.handle_combat()
         else:
             print("Invalid choice. Please try again.")
 
-    # Handles the challenge state
-    def handle_challenge(self, challenge_type):
-        if challenge_type == "max_hp":
-            print("Max HP challenge")
-            self.current_state = self.GAME_OVER
-        elif challenge_type == "damage":
-            print("Damage challenge")
-            self.current_state = self.GAME_OVER
+    def handle_combat(self): # TODO Add logic for combat
+        self.state = self.COMBAT
+        print("Ze combat not implemented. GAME OVER")
+        self.state = self.GAME_OVER
