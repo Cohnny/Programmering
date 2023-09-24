@@ -15,10 +15,10 @@ Creates player object. <br />
 Creates random enemy object. <br />
 Prints description of the enemy object. <br />
 
-## Things to come:
-Combat with random enemies <br />
-Random events <br />
-Randomize player choices (directions) <br />
-Passive bonuses <br />
-Inventory <br />
-Loot <br />
+## In Progress: Subject to Enhancements!:
+Combat with random enemies. <br />
+Random events. <br />
+Randomize player choices (directions). <br />
+Passive bonuses. <br />
+Inventory. <br />
+Loot. <br />
