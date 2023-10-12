@@ -12,7 +12,7 @@ def main():
         elif current_state.state == current_state.EXPLORATION:
             current_state.handle_exploration()
 
-
+print("Tja")
 # Initialize
 if __name__ == "__main__":
     main()
